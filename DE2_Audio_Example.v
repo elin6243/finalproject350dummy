@@ -78,9 +78,9 @@ reg[31:0] tone, Bcount,MaxBeat,MaxFreq,MaxBeatNext,MaxFreqNext,BeatIndex,BeatInc
 	tone <= 32'h0;
 	Bcount <= 32'h0;
 	MaxBeat <=32'd50000000;
-	MaxFreq <= 32'd523;
+	MaxFreq <= 32'd48076;
 	MaxBeatNext <= 32'd25000000;
-	MaxFreqNext <= 32'd523;
+	MaxFreqNext <= 32'd71633; //f
 	BeatIndex <=32'h0;
 	BeatIncrement <= 32'h00000001;
 end
@@ -89,59 +89,94 @@ always
 begin
 	case(BeatIndex)
 	32'h0:begin
-		MaxBeatNext <=32'd50000000;
-		MaxFreqNext <=32'd43103;
+		MaxBeatNext <=32'd25000000;
+		MaxFreqNext <=32'd48076; //c
 		BeatIncrement <= 32'h00000001;
 		end
 	32'h00000001:begin
-		MaxBeatNext <=32'd50000000;
-		MaxFreqNext <=32'd43103;
+		MaxBeatNext <=32'd25000000;
+		MaxFreqNext <=32'd40192; //eflat
 		BeatIncrement <= 32'h00000002;
 		end
 	32'h00000002:begin
-		MaxBeatNext <=32'd50000000;
-		MaxFreqNext <=32'd37878;
+		MaxBeatNext <=32'd25000000;
+		MaxFreqNext <=32'd35816; //f
 		BeatIncrement <= 32'h00000003;
 		end
 	32'h00000003:begin
-		MaxBeatNext <=32'd12500000;
-		MaxFreqNext <=32'd32051;
+		MaxBeatNext <=32'd50000000;
+		MaxFreqNext <=32'd53608; //bflat
 		BeatIncrement <= 32'h00000004;
 		end
 	32'h00000004:begin
-		MaxBeatNext <=32'd12500000;
-		MaxFreqNext <=32'd35714;
+		MaxBeatNext <=32'd6250000;
+		MaxFreqNext <=32'd60240; //aflat
 		BeatIncrement <= 32'h00000005;
 		end
 	32'h00000005:begin
-		MaxBeatNext <=32'd12500000;
-		MaxFreqNext <=32'd37878;
+		MaxBeatNext <=32'd6250000;
+		MaxFreqNext <=32'd53608; //bflat
 		BeatIncrement <= 32'h00000006;
 		end
 	32'h00000006:begin
-		MaxBeatNext <=32'd50000000;
-		MaxFreqNext <=32'd48076;
+		MaxBeatNext <=32'd25000000;
+		MaxFreqNext <=32'd48076;//c
 		BeatIncrement <= 32'h00000007;
 		end
 	32'h00000007:begin
-		MaxBeatNext <=32'd50000000;
-		MaxFreqNext <=32'd43103;
+		MaxBeatNext <=32'd25000000;
+		MaxFreqNext <=32'd53608;//bflat
 		BeatIncrement <= 32'h00000008;
 		end
 	32'h00000008:begin
-		MaxBeatNext <=32'd50000000;
-		MaxFreqNext <=32'd43103;
+		MaxBeatNext <=32'd25000000;
+		MaxFreqNext <=32'd60240;//aflat
 		BeatIncrement <= 32'h00000009;
 		end
 	32'h00000009:begin
-		MaxBeatNext <=32'd50000000;
-		MaxFreqNext <=32'd43103;
+		MaxBeatNext <=32'd25000000;
+		MaxFreqNext <=32'd43103;//g
 		BeatIncrement <= 32'h0000000A;
 		end
 	32'h0000000A:begin
 		MaxBeatNext <=32'd100000000;
-		MaxFreqNext <=32'd37878;
-		BeatIncrement <= 32'h0;
+		MaxFreqNext <=32'd37878;//f
+		BeatIncrement <= 32'h0000000B;
+		end
+	32'h0000000B:begin
+		MaxBeatNext <=32'd100000000;
+		MaxFreqNext <=32'd37878;//eflat
+		BeatIncrement <= 32'h000000C;
+		end
+	32'h0000000C:begin
+		MaxBeatNext <=32'd100000000;
+		MaxFreqNext <=32'd37878;//f
+		BeatIncrement <= 32'h000000C;
+		end
+	32'h0000000D:begin
+		MaxBeatNext <=32'd100000000;
+		MaxFreqNext <=32'd37878;//aflat
+		BeatIncrement <= 32'h000000C;
+		end
+	32'h0000000E:begin
+		MaxBeatNext <=32'd100000000;
+		MaxFreqNext <=32'd37878;//bflat
+		BeatIncrement <= 32'h000000C;
+		end
+	32'h0000000E:begin
+		MaxBeatNext <=32'd100000000;
+		MaxFreqNext <=32'd37878;//g
+		BeatIncrement <= 32'h000000C;
+		end
+	32'h0000000F:begin
+		MaxBeatNext <=32'd100000000;
+		MaxFreqNext <=32'd37878;//eflat
+		BeatIncrement <= 32'h00;
+		end
+	32'h00000010
+		MaxBeatNext <=32'd100000000;
+		MaxFreqNext <=32'd37878;//f
+		BeatIncrement <= 32'h00;
 		end
 	default:begin 
 		MaxBeatNext <=32'd100000000;
